@@ -2,12 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('admin/tags', [\App\Http\Controllers\TagController::class, 'index'])->name('admin.tags');
-Route::get('admin/tags/create', [\App\Http\Controllers\TagController::class, 'create'])->name('admin.tags.create');
-Route::post('admin/tags', [\App\Http\Controllers\TagController::class, 'store'])->name('admin.tags.store');
-Route::get('admin/tags/{tag}/edit', [\App\Http\Controllers\TagController::class, 'edit'])->name('admin.tags.edit');
-Route::put('admin/tags/{id}', [\App\Http\Controllers\TagController::class, 'update'])->name('admin.tags.update');
-Route::get('admin/tags/{id}/destroy', [\App\Http\Controllers\TagController::class, 'destroy'])->name('admin.tags.destroy');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::controller(\App\Http\Controllers\TagController::class)->group(function () {
+        Route::get('tags', 'index')->name('tags');
+        Route::get('tags/create', 'create')->name('tags.create');
+        Route::post('tags', 'store')->name('tags.store');
+        Route::get('tags/{tag}/edit', 'edit')->name('tags.edit');
+        Route::put('tags/{id}', 'update')->name('tags.update');
+        Route::get('tags/{id}/destroy', 'destroy')->name('tags.destroy');
+    });
+
+    Route::controller(\App\Http\Controllers\PostCategoryController::class)->group(function () {
+        Route::get('post-categories', 'index')->name('post-categories');
+        Route::get('post-categories/create', 'create')->name('post-categories.create');
+        Route::post('post-categories', 'store')->name('post-categories.store');
+        Route::get('post-categories/{category}/edit', 'edit')->name('post-categories.edit');
+        Route::put('post-categories/{id}', 'update')->name('post-categories.update');
+        Route::get('post-categories/{id}/destroy', 'destroy')->name('post-categories.destroy');
+    });
+});
 
 Route::get('/', function () {
     return view('welcome');

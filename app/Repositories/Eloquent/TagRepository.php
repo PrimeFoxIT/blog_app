@@ -19,9 +19,9 @@ final class TagRepository implements ITagRepository
         ]);
     }
 
-    public function update(UuidInterface $uuid, TagObject $getTagData): void
+    public function update(UuidInterface $uuid, TagObject $tagData): void
     {
-        Tag::where('id', $uuid->toString())->update($getTagData->toArray());
+        Tag::where('id', $uuid->toString())->update($tagData->toArray());
     }
 
     public function remove(UuidInterface $uuid): void

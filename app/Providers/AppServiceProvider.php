@@ -18,6 +18,15 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             \App\Repositories\ITagRepository::class,
             \App\Repositories\Eloquent\TagRepository::class);
+
+        $this->app->bind(
+            \App\Services\Interfaces\IPostCategoryService::class,
+            \App\Services\PostCategoryService::class);
+
+        $this->app->bind(
+            \App\Repositories\IPostCategoryRepository::class,
+            \App\Repositories\Eloquent\PostCategoryRepository::class
+        );
     }
 
     /**

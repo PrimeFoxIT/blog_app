@@ -15,6 +15,7 @@ class PostCategory extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
+        'id',
         'name',
         'slug',
         'description',

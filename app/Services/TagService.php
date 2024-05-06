@@ -26,13 +26,13 @@ final class TagService implements ITagService
         $this->tagRepository->update($uuid, $getTagData);
     }
 
-    public function getAll(): \Illuminate\Support\Collection
-    {
-        return $this->tagRepository->getAll();
-    }
-
     public function remove(UuidInterface $uuid): void
     {
         $this->tagRepository->remove($uuid);
+    }
+
+    public function getAll(): \Illuminate\Support\Collection
+    {
+        return $this->tagRepository->getAll();
     }
 }

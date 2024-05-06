@@ -170,6 +170,10 @@
             "orderable": false,
         } ]
     });
+
+    $('.summernote-editor').summernote({
+        height: '350px'
+    })
 </script>
 @yield('scripts')
 </body>

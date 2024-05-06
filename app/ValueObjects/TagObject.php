@@ -6,7 +6,7 @@ namespace App\ValueObjects;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
 
-final class TagObject implements Arrayable
+final readonly class TagObject implements Arrayable
 {
     private string $slug;
 
