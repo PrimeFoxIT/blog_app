@@ -27,6 +27,15 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\IPostCategoryRepository::class,
             \App\Repositories\Eloquent\PostCategoryRepository::class
         );
+
+        $this->app->bind(
+            \App\Services\Interfaces\IPostService::class,
+            \App\Services\PostService::class);
+
+        $this->app->bind(
+            \App\Repositories\IPostRepository::class,
+            \App\Repositories\Eloquent\PostRepository::class
+        );
     }
 
     /**

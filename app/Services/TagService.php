@@ -21,9 +21,9 @@ final class TagService implements ITagService
         $this->tagRepository->create($uuid, $tagData);
     }
 
-    public function update(UuidInterface $uuid, TagObject $getTagData): void
+    public function update(UuidInterface $uuid, TagObject $tagData): void
     {
-        $this->tagRepository->update($uuid, $getTagData);
+        $this->tagRepository->update($uuid, $tagData);
     }
 
     public function remove(UuidInterface $uuid): void

@@ -11,7 +11,7 @@ interface ITagService
 {
     public function create(UuidInterface $uuid, TagObject $tagData): void;
 
-    public function update(UuidInterface $uuid, TagObject $getTagData): void;
+    public function update(UuidInterface $uuid, TagObject $tagData): void;
 
     public function remove(UuidInterface $uuid): void;
 

@@ -16,6 +16,7 @@ class Post extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
+        'id',
         'title',
         'slug',
         'content',
@@ -46,7 +47,7 @@ class Post extends Model
 
     public function getThumbnailUrlAttribute(): string
     {
-        return $this->thumbnail ? asset('storage/' . $this->thumbnail) : '';
+        return $this->thumbnail ? asset( '/posts/' . $this->thumbnail) : '';
     }
 
     public function scopePublished($query)
